@@ -1,0 +1,15 @@
+//
+//  SceneDelegate.h
+//  ios_container_zgm
+//
+//  Created by 张国铭 on 2021/10/2.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+
+@property (strong, nonatomic) UIWindow * window;
+
+@end
+
