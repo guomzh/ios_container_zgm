@@ -83,6 +83,7 @@
     
 }
 
+
 - (IBAction)resize:(UIButton *)sender {
     CGRect frame = self.pyy.frame;
     // CGRect frame = self.pyy.bounds;
@@ -144,9 +145,12 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)learnUITableView {
+}
+
 - (IBAction)jumpToThirdPage {
-    ViewController02 *vc = [[ViewController02 alloc] initWithNibName:@"ViewController02" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+//    ViewController02 *vc = [[ViewController02 alloc] initWithNibName:@"ViewController02" bundle:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)jumpToSecondPage {
