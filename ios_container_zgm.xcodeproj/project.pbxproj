@@ -19,6 +19,7 @@
 		5C6FD7992708233E002C2CCF /* ios_container_zgmUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FD7982708233E002C2CCF /* ios_container_zgmUITests.m */; };
 		5C6FD79B2708233E002C2CCF /* ios_container_zgmUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FD79A2708233E002C2CCF /* ios_container_zgmUITestsLaunchTests.m */; };
 		5C6FD7AA27086D46002C2CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6FD77B2708233C002C2CCF /* Main.storyboard */; };
+		5CB433B6278324C2006C80D8 /* appInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CB433B5278324C1006C80D8 /* appInfo.plist */; };
 		5CB80A00272F6ED50016A41D /* ViewController03.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB809FF272F6ED50016A41D /* ViewController03.m */; };
 		5CB80A02272F71B70016A41D /* pic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CB80A01272F71B70016A41D /* pic.plist */; };
 		5CE30A0927819C4B00F301E2 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE30A0827819C4B00F301E2 /* TableViewController.m */; };
@@ -62,6 +63,7 @@
 		5C6FD7942708233E002C2CCF /* ios_container_zgmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_container_zgmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6FD7982708233E002C2CCF /* ios_container_zgmUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_container_zgmUITests.m; sourceTree = "<group>"; };
 		5C6FD79A2708233E002C2CCF /* ios_container_zgmUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_container_zgmUITestsLaunchTests.m; sourceTree = "<group>"; };
+		5CB433B5278324C1006C80D8 /* appInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = appInfo.plist; sourceTree = "<group>"; };
 		5CB809FE272F6ED50016A41D /* ViewController03.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController03.h; sourceTree = "<group>"; };
 		5CB809FF272F6ED50016A41D /* ViewController03.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController03.m; sourceTree = "<group>"; };
 		5CB80A01272F71B70016A41D /* pic.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = pic.plist; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				5CB80A01272F71B70016A41D /* pic.plist */,
 				5CE30A0727819C4B00F301E2 /* TableViewController.h */,
 				5CE30A0827819C4B00F301E2 /* TableViewController.m */,
+				5CB433B5278324C1006C80D8 /* appInfo.plist */,
 			);
 			path = ios_container_zgm;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB433B6278324C2006C80D8 /* appInfo.plist in Resources */,
 				5C6FD7AA27086D46002C2CCF /* Main.storyboard in Resources */,
 				5C6FD7822708233E002C2CCF /* LaunchScreen.storyboard in Resources */,
 				5C625619271358D8002B9AFD /* ViewController02.xib in Resources */,

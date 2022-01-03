@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) NSArray *apps;
+
 @end
 
 @implementation TableViewController
@@ -21,12 +23,83 @@
  2，数据源对象实现协议
  3，实行协议必须的方法
  */
+- (NSArray *) apps {
+    if(_apps == nil) {
+        NSString * path = [[NSBundle mainBundle]pathForResource:@"appInfo.plist" ofType:nil];
+        _apps = [NSArray arrayWithContentsOfFile:path];
+    }
+    return _apps;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.tableView.dataSource = self;
+    
+    [self loadAppInfo];
+}
+
+- (void) loadAppInfo {
+    // 每行应用个数
+    int columns = 3;
+    CGFloat viewWith = self.view.frame.size.width;
+    CGFloat appW = 75;
+    CGFloat appH = 90;
+    CGFloat marginTop = 30;
+    CGFloat marginX = (viewWith - columns * appW) / (columns + 1);
+    CGFloat marginY = marginX;
+    for(int i = 0; i < self.apps.count; i++) {
+        // 获取当前应用的数据
+        NSDictionary *dic = self.apps[i];
+        
+        NSLog(@"-------------");
+        UIView *appView = [[UIView alloc] init];
+        
+        appView.backgroundColor = [UIColor orangeColor];
+        
+        CGFloat appX = marginX + (appW + marginX) * (i % 3);
+        CGFloat appY = marginTop + (appH + marginY) * (i / 3);
+        appView.frame = CGRectMake(appX, appY, appW, appH);
+        
+        [self.view addSubview:appView];
+    
+        // 创建一个icon
+        UIImageView *imageViewIcon = [[UIImageView alloc] init];
+        imageViewIcon.backgroundColor = [UIColor yellowColor];
+        CGFloat iconW = 45;
+        CGFloat iconH = 45;
+        CGFloat iconX = (appView.frame.size.width - iconW) * 0.5;
+        CGFloat iconY = 0;
+        imageViewIcon.frame = CGRectMake(iconX, iconY, iconW, iconH);
+        imageViewIcon.image = [UIImage imageNamed:dic[@"appIcon"]];
+        [appView addSubview:imageViewIcon];
+
+        
+        // 创建一个label
+        UILabel * name = [[UILabel alloc] init];
+        name.backgroundColor = [UIColor redColor];
+        CGFloat nameW = appView.frame.size.width;
+        CGFloat nameH = 20;
+        CGFloat nameY = iconH;
+        CGFloat nameX = 0;
+        name.frame = CGRectMake(nameX, nameY, nameW, nameH);
+        name.text = dic[@"appName"];
+        [appView addSubview:name];
+        
+        // 创建一个button
+        UIButton *btDownload = [[UIButton alloc] init];
+        btDownload.backgroundColor = [UIColor greenColor];
+        CGFloat btnW = iconW;
+        CGFloat btnH = 20;
+        CGFloat btnX = iconX;
+        // CGFloat btnY = nameY + nameH;
+        CGFloat btnY = CGRectGetMaxY(name.frame);
+        btDownload.frame = CGRectMake(btnX, btnY, btnW, btnH);
+        [btDownload setTitle:@"下载" forState:UIControlStateNormal];
+        [appView addSubview:btDownload];
+    }
 }
 
 /*
