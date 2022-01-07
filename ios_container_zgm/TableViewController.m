@@ -7,6 +7,8 @@
 //
 
 #import "TableViewController.h"
+#import "AppModel.h"
+#import "AppModelView.h"
 
 @interface TableViewController ()<UITableViewDataSource>
 
@@ -26,11 +28,17 @@
 - (NSArray *) apps {
     if(_apps == nil) {
         NSString * path = [[NSBundle mainBundle]pathForResource:@"appInfo.plist" ofType:nil];
-        _apps = [NSArray arrayWithContentsOfFile:path];
+        NSArray *arrayDic = [NSArray arrayWithContentsOfFile:path];
+        NSMutableArray *arrayModels = [NSMutableArray array];
+        for(NSDictionary *dic in arrayDic) {
+            // 创建模型
+            AppModel *model = [AppModel appWithDic:dic];
+            [arrayModels addObject:model];
+        }
+        _apps = arrayModels;
     }
     return _apps;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,7 +49,37 @@
     [self loadAppInfo];
 }
 
-- (void) loadAppInfo {
+- (void)loadAppInfo {
+    // 每行应用个数
+    int columns = 3;
+    CGFloat viewWith = self.view.frame.size.width;
+    CGFloat appW = 75;
+    CGFloat appH = 90;
+    CGFloat marginTop = 30;
+    CGFloat marginX = (viewWith - columns * appW) / (columns + 1);
+    CGFloat marginY = marginX;
+    
+    for(int i = 0; i < self.apps.count; i++) {
+        // 获取当前应用的数据
+        AppModel *model = self.apps[i];
+
+        NSBundle *rootBundle = [NSBundle mainBundle];
+        AppModelView *appView = [[rootBundle loadNibNamed:@"AppModelView" owner:nil options:nil] lastObject];
+        
+        CGFloat appX = marginX + (appW + marginX) * (i % 3);
+        CGFloat appY = marginTop + (appH + marginY) * (i / 3);
+        appView.frame = CGRectMake(appX, appY, appW, appH);
+        [self.view addSubview:appView];
+        
+        appView.model = model;
+        // appView.imageViewIcon.image = [UIImage imageNamed:model.appIcon];
+        // appView.nameLabel.text = model.appName;
+        // appView.backgroundColor = [UIColor orangeColor];
+
+    }
+}
+
+- (void) loadAppInfoWithCode {
     // 每行应用个数
     int columns = 3;
     CGFloat viewWith = self.view.frame.size.width;
@@ -52,12 +90,12 @@
     CGFloat marginY = marginX;
     for(int i = 0; i < self.apps.count; i++) {
         // 获取当前应用的数据
-        NSDictionary *dic = self.apps[i];
+        AppModel *model = self.apps[i];
         
         NSLog(@"-------------");
         UIView *appView = [[UIView alloc] init];
         
-        appView.backgroundColor = [UIColor orangeColor];
+        // appView.backgroundColor = [UIColor orangeColor];
         
         CGFloat appX = marginX + (appW + marginX) * (i % 3);
         CGFloat appY = marginTop + (appH + marginY) * (i / 3);
@@ -68,24 +106,26 @@
         // 创建一个icon
         UIImageView *imageViewIcon = [[UIImageView alloc] init];
         imageViewIcon.backgroundColor = [UIColor yellowColor];
-        CGFloat iconW = 45;
+        CGFloat iconW = 65;
         CGFloat iconH = 45;
         CGFloat iconX = (appView.frame.size.width - iconW) * 0.5;
         CGFloat iconY = 0;
         imageViewIcon.frame = CGRectMake(iconX, iconY, iconW, iconH);
-        imageViewIcon.image = [UIImage imageNamed:dic[@"appIcon"]];
+        imageViewIcon.image = [UIImage imageNamed:model.appIcon];
         [appView addSubview:imageViewIcon];
 
         
         // 创建一个label
         UILabel * name = [[UILabel alloc] init];
-        name.backgroundColor = [UIColor redColor];
+        // name.backgroundColor = [UIColor redColor];
         CGFloat nameW = appView.frame.size.width;
         CGFloat nameH = 20;
         CGFloat nameY = iconH;
         CGFloat nameX = 0;
         name.frame = CGRectMake(nameX, nameY, nameW, nameH);
-        name.text = dic[@"appName"];
+        name.text = model.appName;
+        name.font = [UIFont systemFontOfSize:12];
+        name.textAlignment = NSTextAlignmentCenter;
         [appView addSubview:name];
         
         // 创建一个button
@@ -98,8 +138,15 @@
         CGFloat btnY = CGRectGetMaxY(name.frame);
         btDownload.frame = CGRectMake(btnX, btnY, btnW, btnH);
         [btDownload setTitle:@"下载" forState:UIControlStateNormal];
+        [btDownload setTitle:@"已安装" forState:UIControlStateDisabled];
+        btDownload.titleLabel.font = [UIFont systemFontOfSize:14];
+        [btDownload addTarget:self action:@selector(btDownloadClick) forControlEvents:UIControlEventTouchUpInside];
         [appView addSubview:btDownload];
     }
+}
+
+- (void) btDownloadClick {
+    NSLog(@"点击了按钮");
 }
 
 /*

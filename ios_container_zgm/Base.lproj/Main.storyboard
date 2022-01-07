@@ -290,7 +290,7 @@
         <scene sceneID="9vL-PF-9cm">
             <objects>
                 <viewController storyboardIdentifier="ViewController01" id="jN6-yE-am5" customClass="ViewController01" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d5n-6M-nQN">
+                    <view key="view" contentMode="scaleToFill" id="d5n-6M-nQN" customClass="SCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -318,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="751" y="68"/>
         </scene>
-        <!--View Controller03-->
+        <!--Show Pic Controller-->
         <scene sceneID="BYg-Zf-Z1K">
             <objects>
-                <viewController id="i1P-Lp-JUZ" customClass="ViewController03" sceneMemberID="viewController">
+                <viewController id="i1P-Lp-JUZ" customClass="ShowPicController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ej-jR-fhR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +334,7 @@
                                 <rect key="frame" x="155" y="529" width="103" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.38799907630000002" blue="0.80808265059999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noN-Ei-0QY">
@@ -359,7 +359,7 @@
                                 <rect key="frame" x="163" y="323" width="86" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.38799907630000002" blue="0.80808265059999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

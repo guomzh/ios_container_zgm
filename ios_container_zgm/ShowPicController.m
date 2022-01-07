@@ -6,9 +6,9 @@
 //  Copyright © 2021 zgm. All rights reserved.
 //
 
-#import "ViewController03.h"
+#import "ShowPicController.h"
 
-@interface ViewController03 ()
+@interface ShowPicController ()
 
 @property(nonatomic, strong)NSArray *pic;
 
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation ViewController03
+@implementation ShowPicController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
