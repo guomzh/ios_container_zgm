@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController01.h"
 
 @interface ViewController : UIViewController
 

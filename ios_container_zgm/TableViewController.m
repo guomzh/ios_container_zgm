@@ -62,9 +62,11 @@
     for(int i = 0; i < self.apps.count; i++) {
         // 获取当前应用的数据
         AppModel *model = self.apps[i];
-
-        NSBundle *rootBundle = [NSBundle mainBundle];
-        AppModelView *appView = [[rootBundle loadNibNamed:@"AppModelView" owner:nil options:nil] lastObject];
+        
+        NSLog(@"-------------");
+        
+        // 加载xib文件
+        AppModelView *appView = [AppModelView appModelView];
         
         CGFloat appX = marginX + (appW + marginX) * (i % 3);
         CGFloat appY = marginTop + (appH + marginY) * (i / 3);
@@ -75,7 +77,6 @@
         // appView.imageViewIcon.image = [UIImage imageNamed:model.appIcon];
         // appView.nameLabel.text = model.appName;
         // appView.backgroundColor = [UIColor orangeColor];
-
     }
 }
 

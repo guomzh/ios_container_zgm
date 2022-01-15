@@ -28,6 +28,11 @@
     // Drawing code
 }
 */
++ (AppModelView *)appModelView {
+    NSBundle *rootBundle = [NSBundle mainBundle];
+    AppModelView *appView = [[rootBundle loadNibNamed:@"AppModelView" owner:nil options:nil] lastObject];
+    return appView;
+}
 
 // 重写model属性的set方法
 - (void)setModel:(AppModel *)model {

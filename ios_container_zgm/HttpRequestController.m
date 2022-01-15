@@ -6,17 +6,30 @@
 //  Copyright © 2021 zgm. All rights reserved.
 //
 
-#import "ViewController01.h"
+#import "HttpRequestController.h"
 
-@interface ViewController01 ()
+@interface HttpRequestController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *getButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 
 @end
 
-@implementation ViewController01
+@implementation HttpRequestController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self testHttp];
+}
+
+- (void)testHttp {
+    [_getButton addTarget:self action:@selector(httpGetRequest) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)httpGetRequest {
+    NSLog(@"开始进行http get 请求");
 }
 
 /*

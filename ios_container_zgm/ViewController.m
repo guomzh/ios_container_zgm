@@ -182,4 +182,28 @@
             self.pyy.transform = CGAffineTransformTranslate(self.pyy.transform, 10, 10);
     }];
 }
+
+- (IBAction)setLocalNotification {
+    NSDate *now = [NSDate date];
+    UILocalNotification *reminderNotification = [[UILocalNotification alloc] init];
+    [reminderNotification setFireDate:[now dateByAddingTimeInterval:15]];
+    [reminderNotification setTimeZone:[NSTimeZone defaultTimeZone]];
+    [reminderNotification setAlertBody:@"开始同步轨迹数据"];
+    [reminderNotification setAlertAction:@"同步"];
+    [reminderNotification setSoundName:UILocalNotificationDefaultSoundName];
+    [reminderNotification setApplicationIconBadgeNumber:1];
+    [[UIApplication sharedApplication] scheduleLocalNotification:reminderNotification];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Reminder" message:@"提醒已设置" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"OK thanks" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alert addAction:dismissAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
 @end

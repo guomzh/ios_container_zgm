@@ -6,8 +6,9 @@
 //
 
 #import "AppDelegate.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -23,6 +24,20 @@
 //    self.window.rootViewController = rootViewController;
 //    self.viewController = [[ViewController_01 alloc] initWithNibName:@"ViewController_01" bundle:nil];
 //    self.window.rootViewController = self.viewController;
+    //注册本地推送
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                              
+                          }];
+    
+    //获取当前的通知设置
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        
+    }];
+        
+    
     return YES;
 }
 
@@ -43,5 +58,14 @@
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSString *message = [notification alertBody];
+    
+    NSString *appState = ([application applicationState] == UIApplicationStateActive) ? @"app Active": @"app in background";
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"接受到通知内容： %@ , 此时app状态： %@", message, appState);
+    });
+}
 
 @end

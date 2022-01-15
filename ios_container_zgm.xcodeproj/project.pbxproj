@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C62561427134D8B002B9AFD /* ViewController01.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C62561327134D8B002B9AFD /* ViewController01.m */; };
+		5C62561427134D8B002B9AFD /* HttpRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C62561327134D8B002B9AFD /* HttpRequestController.m */; };
 		5C6FD7742708233C002C2CCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FD7732708233C002C2CCF /* AppDelegate.m */; };
 		5C6FD7772708233C002C2CCF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FD7762708233C002C2CCF /* SceneDelegate.m */; };
 		5C6FD77A2708233C002C2CCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FD7792708233C002C2CCF /* ViewController.m */; };
@@ -45,8 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C62561227134D8B002B9AFD /* ViewController01.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController01.h; sourceTree = "<group>"; };
-		5C62561327134D8B002B9AFD /* ViewController01.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController01.m; sourceTree = "<group>"; };
+		5C62561227134D8B002B9AFD /* HttpRequestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpRequestController.h; sourceTree = "<group>"; };
+		5C62561327134D8B002B9AFD /* HttpRequestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpRequestController.m; sourceTree = "<group>"; };
 		5C6FD76F2708233C002C2CCF /* ios_container_zgm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_container_zgm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6FD7722708233C002C2CCF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C6FD7732708233C002C2CCF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,30 +125,10 @@
 		5C6FD7712708233C002C2CCF /* ios_container_zgm */ = {
 			isa = PBXGroup;
 			children = (
-				5C6FD7722708233C002C2CCF /* AppDelegate.h */,
-				5C6FD7732708233C002C2CCF /* AppDelegate.m */,
-				5C6FD7752708233C002C2CCF /* SceneDelegate.h */,
-				5C6FD7762708233C002C2CCF /* SceneDelegate.m */,
-				5C6FD7782708233C002C2CCF /* ViewController.h */,
-				5C6FD7792708233C002C2CCF /* ViewController.m */,
-				5C6FD77B2708233C002C2CCF /* Main.storyboard */,
-				5C6FD77E2708233E002C2CCF /* Assets.xcassets */,
-				5C6FD7802708233E002C2CCF /* LaunchScreen.storyboard */,
-				5C6FD7832708233E002C2CCF /* Info.plist */,
-				5C6FD7842708233E002C2CCF /* main.m */,
-				5C62561227134D8B002B9AFD /* ViewController01.h */,
-				5C62561327134D8B002B9AFD /* ViewController01.m */,
-				5CB809FE272F6ED50016A41D /* ShowPicController.h */,
-				5CB809FF272F6ED50016A41D /* ShowPicController.m */,
-				5CB80A01272F71B70016A41D /* pic.plist */,
-				5CE30A0727819C4B00F301E2 /* TableViewController.h */,
-				5CE30A0827819C4B00F301E2 /* TableViewController.m */,
-				5CB433B5278324C1006C80D8 /* appInfo.plist */,
-				5CB433B72787F76D006C80D8 /* AppModel.h */,
-				5CB433B82787F76D006C80D8 /* AppModel.m */,
-				5CB433BA27889830006C80D8 /* AppModelView.xib */,
-				5CB433BC2788A014006C80D8 /* AppModelView.h */,
-				5CB433BD2788A014006C80D8 /* AppModelView.m */,
+				5CB0BE8E2789F5960089A71E /* Others */,
+				5CB0BE8D2789F58B0089A71E /* Views */,
+				5CB0BE882789F2CD0089A71E /* Models */,
+				5CB0BE852789F2A30089A71E /* Controllers */,
 			);
 			path = ios_container_zgm;
 			sourceTree = "<group>";
@@ -168,6 +148,58 @@
 				5C6FD79A2708233E002C2CCF /* ios_container_zgmUITestsLaunchTests.m */,
 			);
 			path = ios_container_zgmUITests;
+			sourceTree = "<group>";
+		};
+		5CB0BE852789F2A30089A71E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CE30A0727819C4B00F301E2 /* TableViewController.h */,
+				5CE30A0827819C4B00F301E2 /* TableViewController.m */,
+				5C62561227134D8B002B9AFD /* HttpRequestController.h */,
+				5C62561327134D8B002B9AFD /* HttpRequestController.m */,
+				5CB809FE272F6ED50016A41D /* ShowPicController.h */,
+				5CB809FF272F6ED50016A41D /* ShowPicController.m */,
+				5C6FD7782708233C002C2CCF /* ViewController.h */,
+				5C6FD7792708233C002C2CCF /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5CB0BE882789F2CD0089A71E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CB433B72787F76D006C80D8 /* AppModel.h */,
+				5CB433B82787F76D006C80D8 /* AppModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5CB0BE8D2789F58B0089A71E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5C6FD77B2708233C002C2CCF /* Main.storyboard */,
+				5C6FD7802708233E002C2CCF /* LaunchScreen.storyboard */,
+				5CB433BA27889830006C80D8 /* AppModelView.xib */,
+				5CB433BC2788A014006C80D8 /* AppModelView.h */,
+				5CB433BD2788A014006C80D8 /* AppModelView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5CB0BE8E2789F5960089A71E /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				5C6FD77E2708233E002C2CCF /* Assets.xcassets */,
+				5C6FD7842708233E002C2CCF /* main.m */,
+				5C6FD7832708233E002C2CCF /* Info.plist */,
+				5CB80A01272F71B70016A41D /* pic.plist */,
+				5CB433B5278324C1006C80D8 /* appInfo.plist */,
+				5C6FD7722708233C002C2CCF /* AppDelegate.h */,
+				5C6FD7732708233C002C2CCF /* AppDelegate.m */,
+				5C6FD7752708233C002C2CCF /* SceneDelegate.h */,
+				5C6FD7762708233C002C2CCF /* SceneDelegate.m */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C62561427134D8B002B9AFD /* ViewController01.m in Sources */,
+				5C62561427134D8B002B9AFD /* HttpRequestController.m in Sources */,
 				5C6FD77A2708233C002C2CCF /* ViewController.m in Sources */,
 				5CB80A00272F6ED50016A41D /* ShowPicController.m in Sources */,
 				5C6FD7742708233C002C2CCF /* AppDelegate.m in Sources */,
@@ -486,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8SU45TAC69;
@@ -501,8 +534,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zgm.ios-container-zgm";
+				PRODUCT_BUNDLE_IDENTIFIER = "zgm.ios-container-zgm-mine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,6 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8SU45TAC69;
@@ -528,8 +563,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zgm.ios-container-zgm";
+				PRODUCT_BUNDLE_IDENTIFIER = "zgm.ios-container-zgm-mine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
