@@ -65,6 +65,32 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"接受到通知内容： %@ , 此时app状态： %@", message, appState);
+        for(int i = 0; i < 5; i++) {
+            [NSThread sleepForTimeInterval:2];
+            NSLog(@"======异步线程中睡眠%ds=======", i+1);
+        }
+        
+        if([appState isEqualToString:@"app Active"]) {
+            NSLog(@"app Active , 开始异步线程切主线程更新UI");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+                UIViewController *topVC = appRootVC;
+                if (topVC.presentedViewController) {
+                    NSLog(@"根控制器上面还有控制器");
+                    topVC = topVC.presentedViewController;
+                  
+                }
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"异步线程中" message:@"更新UI" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Ok， 更新成功！" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                    [topVC dismissViewControllerAnimated:YES completion:nil];
+                }];
+                
+                [alert addAction:dismissAction];
+                
+                [topVC presentViewController:alert animated:YES completion:nil];
+            });
+        }
     });
 }
 
