@@ -1,0 +1,6 @@
+framework module Pods_ios_container_zgm_ios_container_zgmUITests {
+  umbrella header "Pods-ios_container_zgm-ios_container_zgmUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

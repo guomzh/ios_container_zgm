@@ -12,6 +12,8 @@
 
 @interface TableViewController ()<UITableViewDataSource>
 
+@property(nonatomic, assign)int tableSections;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray *apps;
@@ -44,9 +46,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _tableSections = 3;
+    
     self.tableView.dataSource = self;
     
     [self loadAppInfo];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [NSThread sleepForTimeInterval:5];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.tableSections = 2;
+            [self.tableView reloadData];
+        });
+    });
 }
 
 - (void)loadAppInfo {
@@ -163,7 +175,7 @@
 #pragma mark - /** UITableView的数据源方法*/
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // 1、亚洲 2、欧洲 3、非洲
-    return 3;
+    return _tableSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

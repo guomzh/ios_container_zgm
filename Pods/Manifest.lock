@@ -1,0 +1,24 @@
+PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
+
+DEPENDENCIES:
+  - FMDB
+  - SDWebImage (~> 5.12.5)
+
+SPEC REPOS:
+  trunk:
+    - FMDB
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+
+PODFILE CHECKSUM: 1ee68f8a1e64d2ca59d07638ec21e0961abd2985
+
+COCOAPODS: 1.11.3

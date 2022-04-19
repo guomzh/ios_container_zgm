@@ -16,4 +16,8 @@ target 'ios_container_zgm' do
     # Pods for testing
   end
 
+pod 'SDWebImage', '~> 5.12.5'
+
+pod 'FMDB'
+
 end
